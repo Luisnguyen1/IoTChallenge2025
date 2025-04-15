@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Left side - Sensor Parameters -->
+    <div class="sensor-panel">
+        <h2>Sensor Parameters</h2>
+        <div class="parameter-card">
+            <div class="parameter-icon">🌡️</div>
+            <div class="parameter-details">
+                <h3>Temperature</h3>
+                <p id="temperature-value">{{ sensor_data.temperature }} °C</p>
+            </div>
+        </div>
+        <div class="parameter-card">
+            <div class="parameter-icon">💧</div>
+            <div class="parameter-details">
+                <h3>Humidity</h3>
+                <p id="humidity-value">{{ sensor_data.humidity }} %</p>
+            </div>
+        </div>
+        <div class="parameter-card">
+            <div class="parameter-icon">🔄</div>
+            <div class="parameter-details">
+                <h3>Pressure</h3>
+                <p id="pressure-value">{{ sensor_data.pressure }} hPa</p>
+            </div>
+        </div>
+        <div class="last-updated">
+            <p>Last Updated: <span id="last-updated-time">{{ sensor_data.last_updated }}</span></p>
+        </div>
+    </div>
+
+    <!-- Right side - Request Logs -->
+    <div class="logs-panel">
+        <h2>Request Logs</h2>
+        <div class="logs-container" id="logs-container">
+            <!-- Logs will be added here dynamically -->
+            <div class="empty-logs">No logs available yet</div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}
