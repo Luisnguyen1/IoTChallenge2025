@@ -98,4 +98,4 @@ if __name__ == '__main__':
     # os.makedirs('static/js', exist_ok=True)
     
     logger.info("Starting IoT Challenge 2025 server on port 7860...")
-    socketio.run(app, host='0.0.0.0', port=7860, debug=True)
+    socketio.run(app, host='0.0.0.0', port=7860, debug=True, allow_unsafe_werkzeug=True)
